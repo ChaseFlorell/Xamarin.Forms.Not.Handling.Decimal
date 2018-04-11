@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Xamarin.Forms.Not.Handling.Decimal"
+             x:Class="Xamarin.Forms.Not.Handling.Decimal.MainPage"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+             ios:Page.UseSafeArea="true" >
+<ContentPage.Resources>
+    <ResourceDictionary>
+        <local:NumericConverter x:Key="NumericConverter"/>
+    </ResourceDictionary>
+</ContentPage.Resources>
+    <StackLayout>
+        <Entry Text="{Binding BrokenBinding}"
+               Placeholder="Broken"
+               Keyboard="Numeric"
+               VerticalOptions="Center" 
+               HorizontalOptions="Fill"/>
+
+        <Entry Text="{Binding WorkingBinding, Converter={StaticResource NumericConverter}}"
+               Placeholder="Working"
+               Keyboard="Numeric"
+               VerticalOptions="Center" 
+               HorizontalOptions="Fill"/>
+
+    </StackLayout>
+
+</ContentPage>
